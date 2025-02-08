@@ -341,7 +341,7 @@ ws.onmessage = (event) => {
 
 ## System Architecture 🏗️
 
-![System Architecture](docs/Architecture.png)
+<img src="docs/Architecture.png" alt="System Architecture" width="600" />
 
 ## Hosting 🚀
 
