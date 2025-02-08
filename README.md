@@ -35,6 +35,9 @@ backend/
 ├── config/
 │   └── db.js
 │
+├── docs/
+│   └── architecture.png
+│
 ├── controllers/
 │   ├── authController.js
 │   ├── profileController.js
@@ -338,7 +341,7 @@ ws.onmessage = (event) => {
 
 ## System Architecture 🏗️
 
-![System Architecture](/docs/architecture.png)
+![System Architecture](docs/architecture.png)
 
 ## Hosting 🚀
 
