@@ -15,8 +15,6 @@ setupWebSocket(server);
 app.use(express.json());
 app.use(cors());
 
-app.get('/test', (req, res) => res.send('Hello from the backend!'));
-
 app.use('/api/auth', authRoute);
 app.use('/api/profile', profileRoute);
 app.use('/api/notification', notificationRoute);
