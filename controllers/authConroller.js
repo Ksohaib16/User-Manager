@@ -2,7 +2,6 @@ const { authSchema } = require('../validator');
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET;
 
 module.exports.signup = async (req, res) => {
     const { error, value } = authSchema.validate(req.body);
@@ -26,12 +25,10 @@ module.exports.signup = async (req, res) => {
         const saltRound = 5;
         const hashedPassword = await bcrypt.hash(payload.password, saltRound);
 
-        const user = new User({
+        const user = await User.create({
             email: payload.email,
             password: hashedPassword,
         });
-
-        await user.save();
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: '1d',
@@ -40,7 +37,7 @@ module.exports.signup = async (req, res) => {
         const userData = user.toObject();
         delete userData.password;
 
-        res.status(201).json({ message: 'User created successfully', user: userData, token });
+        res.status(200).json({ message: 'User created successfully', user: userData, token });
     } catch (error) {
         res.status(500).json({ error: error.message, message: 'Internal server error' });
     }

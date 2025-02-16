@@ -4,7 +4,7 @@ const Profile = require('../models/profile');
 const { notificationSchema } = require('../validator');
 const { connectedUsers } = require('../ws/websocket');
 const isAvailable = require('../helper/checkAvailability');
-const queue = require('../queue/notificationQueue');
+const queue = require('../../worker/queue');
 
 module.exports.sendNotification = async (req, res) => {
     console.log('Request received:', req.body);

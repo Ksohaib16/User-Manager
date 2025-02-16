@@ -7,7 +7,6 @@ const setupWebSocket = (server) => {
     const wss = new WebSocket.Server({ server });
 
     wss.on('connection', (ws, req) => {
-        console.log('WebSocket connection established', ws.readyState);
         const token = new URL(req.url, 'http://localhost').searchParams.get('token');
         if (!token) return ws.close();
 
