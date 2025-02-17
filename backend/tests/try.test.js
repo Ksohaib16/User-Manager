@@ -38,6 +38,6 @@ describe('Trial test', () => {
     it('should return hello message from /test endpoint', async () => {
         const response = await request(app).get('/test').expect(200);
 
-        expect(response.text).toBe('Hello from the backend test');
+        expect(response.text).toBe('Hello from the backend!');
     });
 });
